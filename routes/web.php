@@ -14,6 +14,10 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 // Clientes
 Route::get('/clientes/novo', [ClienteController::class, 'create'])->name('clientes.create');
 Route::resource('clientes', ClienteController::class);
+Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
+Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+Route::get('/clientes/{id}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('clientes.update');
 
 // Produtos
 Route::resource('produtos', ProdutoController::class);

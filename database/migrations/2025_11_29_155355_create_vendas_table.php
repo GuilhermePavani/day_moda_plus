@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
+            $table->decimal('valor', 10, 2);
+            $table->date('data');
             $table->timestamps();
-        });
+            });
     }
 
     /**
