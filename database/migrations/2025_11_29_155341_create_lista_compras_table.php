@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('lista_compras', function (Blueprint $table) {
             $table->id();
+            $table->string('item');             // nome do produto/material
+            $table->integer('quantidade')->default(1); // quantidade desejada
+            $table->text('observacoes')->nullable();   // detalhes adicionais
+            $table->boolean('comprado')->default(false); // marca como comprado ou não
             $table->timestamps();
         });
     }

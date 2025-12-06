@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->string('telefone')->nullable();
+            $table->string('tamanho_preferido')->nullable();
+            $table->decimal('total_gasto', 10, 2)->default(0);
             $table->timestamps();
         });
     }

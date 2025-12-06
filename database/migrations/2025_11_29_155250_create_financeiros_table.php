@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('financeiros', function (Blueprint $table) {
             $table->id();
+            $table->enum('tipo', ['ganho', 'gasto']);
+            $table->decimal('valor', 10, 2);
+            $table->text('descricao')->nullable();
+            $table->date('data');
             $table->timestamps();
         });
     }

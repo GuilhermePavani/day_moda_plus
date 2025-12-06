@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conta_meis', function (Blueprint $table) {
+        Schema::create('contas_meis', function (Blueprint $table) {
             $table->id();
+            $table->string('descricao');
+            $table->decimal('valor', 10, 2);
+            $table->date('vencimento');
+            $table->boolean('pago')->default(false);
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conta_meis');
+        Schema::dropIfExists('contas_meis');
     }
 };
