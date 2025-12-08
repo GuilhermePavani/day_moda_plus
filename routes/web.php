@@ -5,13 +5,10 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\VendaController;
 use App\Http\Controllers\ProdutoController;
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\SiteController;
 
 // Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 // Vendas
 Route::get('/vendas/create', [VendaController::class, 'create'])->name('vendas.create');
@@ -41,6 +38,4 @@ Route::resource('contas-mei', ContaMeiController::class);
 Route::resource('lista-compras', ListaCompraController::class);
 
 // Página pública de produtos
-use App\Http\Controllers\SiteController;
-
 Route::get('/site-produtos', [SiteController::class, 'blade'])->name('site.produtos');
