@@ -5,7 +5,9 @@
     <title>Clientes</title>
 </head>
 <body>
+    @extends('layouts.app')
 
+    @section('content')
     <h1>Lista de Clientes</h1>
 
     <a href="{{ route('clientes.create') }}">Cadastrar novo cliente</a>
@@ -47,6 +49,6 @@
         </tbody>
 
     </table>
-
+@endsection
 </body>
 </html>

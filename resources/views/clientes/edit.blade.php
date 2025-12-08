@@ -4,6 +4,9 @@
     <title>Editar Cliente</title>
 </head>
 <body>
+    @extends('layouts.app')
+
+    @section('content')
     <h1>Editar Cliente</h1>
 
     <a href="{{ route('clientes.edit', $cliente->id) }}">Editar</a>
@@ -26,6 +29,6 @@
 
     <br>
     <a href="{{ route('clientes.index') }}">Voltar</a>
-
+@endsection
 </body>
 </html>

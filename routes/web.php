@@ -3,13 +3,19 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\VendaController;
+use App\Http\Controllers\ProdutoController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// Vendas
+Route::get('/vendas/create', [VendaController::class, 'create'])->name('vendas.create');
+Route::post('/vendas/store', [VendaController::class, 'store'])->name('vendas.store');
 
 // Clientes
 Route::get('/clientes/novo', [ClienteController::class, 'create'])->name('clientes.create');
@@ -23,7 +29,7 @@ Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('client
 Route::resource('produtos', ProdutoController::class);
 
 // Estoque
-Route::resource('estoque', EstoqueController::class);
+Route::resource('estoques', \App\Http\Controllers\EstoqueController::class);
 
 // Financeiro (ganhos e gastos)
 Route::resource('financeiro', FinanceiroController::class);
@@ -35,4 +41,6 @@ Route::resource('contas-mei', ContaMeiController::class);
 Route::resource('lista-compras', ListaCompraController::class);
 
 // Página pública de produtos
-Route::get('/loja', [LojaController::class, 'index'])->name('loja.index');
+use App\Http\Controllers\SiteController;
+
+Route::get('/site-produtos', [SiteController::class, 'blade'])->name('site.produtos');
